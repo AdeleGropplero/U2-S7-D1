@@ -39,16 +39,33 @@ class Pet {
     this.species = species;
     this.breed = breed;
   }
+  sameOwner(ownerToCompare) {
+    if (this.ownerName === ownerToCompare.ownerName) {
+      return `${this.petName} and ${ownerToCompare.petName} hanno lo stesso padrone: ${this.ownerName}`;
+    } else {
+      return `${this.petName} e ${ownerToCompare.petName} NON hanno lo stesso padrone.`;
+    }
+  }
 }
 
 const form = document.getElementById("petForm");
 
-/* const pets = [] */
+const pets = [];
 
-let petNames = [];
+/* let petNames = [];
 let ownerNames = [];
 let specieses = [];
-let breeds = [];
+let breeds = []; */
+
+const addToPetList = function () {
+  const ul = document.getElementById("list");
+  pets.forEach((pet, i) => {
+    const liItem = document.createElement("li");
+    liItem.classList.add("list-group-item", "text-center");
+    liItem.innerText = `Name: ${pet.petName}   -   Owner: ${pet.ownerName}   -   Species: ${pet.species}   -   Breed: ${pet.breed}`;
+    ul.appendChild(liItem);
+  });
+};
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -59,18 +76,33 @@ form.addEventListener("submit", function (event) {
     const species = document.getElementById("species").value;
     const breed = document.getElementById("breed").value;
 
-    petNames.push(petName);
+    /*  petNames.push(petName);
     ownerNames.push(ownerName);
     specieses.push(species);
-    breeds.push(breed);
+    breeds.push(breed); */
+
+    const pet = new Pet(petName, ownerName, species, breed);
+
+    pets.push(pet);
   };
   myArrays();
-  alert("Dati salvati temporaneamente");
 
   form.reset();
 
-  console.log(petNames);
+  /* console.log(petNames);
   console.log(ownerNames);
   console.log(specieses);
-  console.log(breeds);
+  console.log(breeds); */
+
+  console.log(pets);
+
+  /* verifichiamo se alcuni pet hanno lo stesso padrone */
+  for (let i = 0; i < pets.length; i++) {
+    for (let j = i + 1; j < pets.length; j++) {
+      const Message = pets[i].sameOwner(pets[j]);
+      console.log(Message);
+    }
+  }
+
+  addToPetList();
 });
