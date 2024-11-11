@@ -14,41 +14,45 @@
   </head>
   <body data-bs-theme="dark">
     <div class="container my-5">
-      <h1 class="mb-4 pt-4 text-center">Give me your data</h1>
-      <form>
+      <h1 class="mb-4 pt-4 text-center">Your Pet's data</h1>
+      <form id="petForm">
         <div class="row">
           <div class="col">
             <input
+              id="petName"
               type="text"
               class="form-control"
-              placeholder="First name"
-              aria-label="First name"
+              placeholder="Pet's Name"
+              aria-label="Pet's name"
             />
           </div>
           <div class="col">
             <input
+              id="ownerName"
               type="text"
               class="form-control"
-              placeholder="Last name"
-              aria-label="Last name"
+              placeholder="Owner's name"
+              aria-label="Owner's name"
             />
           </div>
         </div>
         <div class="row my-5">
           <div class="col">
             <input
-              type="number"
+              id="species"
+              type="text"
               class="form-control"
-              placeholder="Age"
-              aria-label="Age"
+              placeholder="Species"
+              aria-label="Species"
             />
           </div>
           <div class="col">
             <input
+              id="breed"
               type="text"
               class="form-control"
-              placeholder="City"
-              aria-label="City"
+              placeholder="Breed"
+              aria-label="Breed"
             />
           </div>
         </div>
