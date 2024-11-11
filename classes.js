@@ -42,8 +42,6 @@ class Pet {
   sameOwner(ownerToCompare) {
     if (this.ownerName === ownerToCompare.ownerName) {
       return `${this.petName} and ${ownerToCompare.petName} hanno lo stesso padrone: ${this.ownerName}`;
-    } else {
-      return `${this.petName} e ${ownerToCompare.petName} NON hanno lo stesso padrone.`;
     }
   }
 }
@@ -59,10 +57,11 @@ let breeds = []; */
 
 const addToPetList = function () {
   const ul = document.getElementById("list");
+  ul.innerHTML = "";
   pets.forEach((pet, i) => {
     const liItem = document.createElement("li");
     liItem.classList.add("list-group-item", "text-center");
-    liItem.innerText = `Name: ${pet.petName}   -   Owner: ${pet.ownerName}   -   Species: ${pet.species}   -   Breed: ${pet.breed}`;
+    liItem.innerText = `Name: ${pet.petName} ---- Owner: ${pet.ownerName} ---- Species: ${pet.species} ---- Breed: ${pet.breed}`;
     ul.appendChild(liItem);
   });
 };
