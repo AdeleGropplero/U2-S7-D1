@@ -103,5 +103,6 @@ form.addEventListener("submit", function (event) {
     }
   }
 
+  /* chiamiamo la funzione per aggiungere il pet alla lista */
   addToPetList();
 });
